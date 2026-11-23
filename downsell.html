@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uma última oferta</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#EEF1EC; --surface:#FFFFFF; --surface-2:#E5EAE4; --ink:#1B2723; --muted:#4E5F57;
+  --line:#C5CFC8; --green:#1F5A43; --pencil:#F2B705; --pencil-ink:#1B2723;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131A17; --surface:#1B2521; --surface-2:#232F2A; --ink:#E9EFEB; --muted:#A8B7AE;
+    --line:#33423B; --green:#7FD0A8;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131A17; --surface:#1B2521; --surface-2:#232F2A; --ink:#E9EFEB; --muted:#A8B7AE;
+  --line:#33423B; --green:#7FD0A8;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:1.0625rem;line-height:1.6;-webkit-text-size-adjust:100%}
+h1,h2{font-family:var(--display);line-height:1.12;letter-spacing:-.015em;margin:0;font-weight:700}
+h1{font-size:clamp(1.9rem,4.6vw,3rem)}
+h2{font-size:clamp(1.25rem,2.6vw,1.6rem)}
+p{margin:0 0 1rem}
+
+.wrap{width:min(640px,100% - 2.5rem);margin-inline:auto;padding:clamp(2rem,6vw,4rem) 0 4rem}
+
+.selo{display:inline-flex;align-items:center;gap:.5rem;font-size:.92rem;font-weight:600;
+  color:var(--green);background:var(--surface-2);border:1px solid var(--line);
+  border-radius:999px;padding:.35rem .85rem;margin:0 0 1.5rem}
+
+.lead{font-size:1.1rem;color:var(--muted);margin:0 0 2rem}
+
+.caixa{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:clamp(1.2rem,3vw,1.8rem);margin:0 0 1.8rem}
+
+ul{margin:.6rem 0 0;padding-left:1.15rem}
+li{margin-bottom:.45rem}
+
+.preco{font-family:var(--display);font-weight:700;font-size:1.5rem;margin:1.4rem 0 0}
+.preco small{display:block;font-family:var(--body);font-weight:400;font-size:.92rem;
+  color:var(--muted);margin-top:.2rem}
+
+/* O componente da Cakto monta os dois botoes em shadow DOM. Por isso eles so
+   aceitam estilo por ::part(button) -- seletor comum nao alcanca la dentro.
+   A cor de fundo vem dos atributos bg-color/text-color; aqui so ajustamos
+   tamanho e tipografia para casar com a landing. */
+.acoes{margin:2rem 0 1.2rem;display:flex;flex-direction:column;align-items:stretch;gap:.7rem}
+cakto-upsell-accept::part(button){
+  width:100%;min-height:56px;border:0;border-radius:10px;cursor:pointer;
+  padding:.9rem 1.3rem;font:600 1.05rem/1.25 var(--body);
+}
+cakto-upsell-reject::part(button){
+  width:100%;min-height:46px;border:0;background:transparent;cursor:pointer;
+  font:500 1rem/1.25 var(--body);color:var(--muted);text-decoration:underline;
+}
+
+.rodape{font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);
+  padding-top:1.2rem;margin-top:2.5rem}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Tudo bem. Então leva o resto por menos.</h1>
+<p class="lead">Uma última oferta, e a gente te leva para os seus downloads.</p>
+
+<div class="caixa">
+  <h2>Os três guias de apoio, juntos</h2>
+  <ul>
+    <li><strong>Guia de Acabamento e Escolha da Madeira</strong> &mdash; que madeira
+    comprar, a sequência das lixas, e quando usar verniz, óleo, cera ou tinta</li>
+    <li><strong>Pack +10 Projetos Rápidos</strong> &mdash; dez peças pequenas que cabem
+    numa tarde, com lista de corte e medidas</li>
+    <li><strong>Marcenaria que Vende</strong> &mdash; como calcular o custo real de uma
+    peça e chegar a um preço que não deixa você trabalhando de graça</li>
+  </ul>
+
+  <p class="preco"><span class="de-por">R$ 39,70</span> &nbsp;R$ 29,90
+    <small>16 páginas somadas, em PDF.</small>
+  </p>
+
+  <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Se você já marcou
+  algum desses na hora da compra, ele já é seu &mdash; nesse caso pule esta oferta.</p>
+</div>
+
+<div class="acoes">
+  <cakto-upsell-accept
+    bg-color="#F2B705"
+    text-color="#1B2723"
+    upsell-accept-url="members_area"
+    offer-id="4mh7adt"
+    app-base-url="https://app.cakto.com.br"
+    offer-type="downsell"
+    upsell-reject-url="members_area">QUERO O COMBO DOS 3</cakto-upsell-accept>
+  <cakto-upsell-reject
+    upsell-reject-url="members_area">não, ir para meus downloads</cakto-upsell-reject>
+</div>
+
+<p class="rodape">Garantia de 30 dias. Recusando, você vai direto para a área de
+membros, onde o seu Kit está esperando.</p>
+</main>
+<script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+</body>
+</html>
